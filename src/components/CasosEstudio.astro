@@ -1,0 +1,96 @@
+---
+const casos = [
+  {
+    cliente: "E-commerce de Indumentaria",
+    rol: "Desarrollo Full Stack & Optimización",
+    problema: "La tienda online tenía un tiempo de carga superior a 5 segundos y perdía ventas en dispositivos móviles por un diseño poco intuitivo.",
+    solucion: "Migramos la interfaz a una arquitectura moderna con Astro y Tailwind, rediseñando el flujo de pago y optimizando todas las imágenes.",
+    resultado: "Reducción del tiempo de carga a menos de 1 segundo y un aumento del 35% en la conversión de carritos.",
+    tech: ["Astro", "Tailwind CSS", "JavaScript", "Vercel"],
+    // Ícono para E-commerce / Tienda
+    icono: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+  },
+  {
+    cliente: "Plataforma SaaS de Reservas",
+    rol: "UI/UX Design & Frontend Engineering",
+    problema: "El cliente necesitaba un panel de control rápido, interactivo y capaz de gestionar calendarios en tiempo real sin recargar la página.",
+    solucion: "Desarrollamos una interfaz limpia conectada a una base de datos optimizada con componentes modulares y diseño adaptativo.",
+    resultado: "Interfaz 100% fluida, navegación sin fricciones y despliegue automatizado en producción.",
+    tech: ["React", "Supabase", "Tailwind CSS", "Figma"],
+    // Ícono para SaaS / Dashboard / Gestión
+    icono: "M9 19V6a1 1 0 00-1-1H4a1 1 0 00-1 1v13a1 1 0 001 1h4a1 1 0 001-1zm0 0V5m0 14h12a1 1 0 001-1v-6a1 1 0 00-1-1H9m0 0V5M16 12a1 1 0 100-2 1 1 0 000 2zm0 0v2a2 2 0 01-2 2H9"
+  }
+];
+---
+
+<section id="casos-estudio" class="max-w-6xl mx-auto px-6 py-24 border-t border-zinc-900">
+  <div class="mb-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div>
+      <h2 class="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-3">Experiencia comprobada</h2>
+      <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Casos de Estudio</p>
+    </div>
+    <a href="#contacto" class="text-sm text-cyan-400 hover:text-cyan-300 group flex items-center gap-2 font-medium">
+      ¿Hablamos de tu proyecto? 
+      <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {casos.map((caso) => (
+      <div class="bg-zinc-900/40 border border-zinc-800/80 p-8 rounded-3xl flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 group">
+        <div>
+          <!-- Encabezado con Ícono y Cliente -->
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-zinc-800/60">
+            <div class="bg-zinc-800 p-3.5 rounded-2xl text-cyan-400 border border-zinc-700 group-hover:scale-105 transition-transform">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d={caso.icono} />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/50 border border-cyan-800/50 px-3 py-1 rounded-full inline-block mb-1">
+                {caso.cliente}
+              </span>
+              <h3 class="text-lg font-bold text-white">{caso.rol}</h3>
+            </div>
+          </div>
+          
+          <!-- Detalles del Caso -->
+          <div class="space-y-5 mb-8">
+            <div>
+              <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1.5 flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                El Desafío
+              </h4>
+              <p class="text-zinc-300 text-sm leading-relaxed">{caso.problema}</p>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1.5 flex items-center gap-2">
+                 <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.334-5.636l-.707.707M16.28 16.636l.707.707M19.294 4.929l.707.707M17.07 17.07l.707.707M12 8a4 4 0 110 8 4 4 0 010-8z"></path></svg>
+                La Solución
+              </h4>
+              <p class="text-zinc-300 text-sm leading-relaxed">{caso.solucion}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultado y Tecnologías -->
+        <div class="mt-auto pt-6 border-t border-zinc-800/60 space-y-5">
+           <div class="bg-emerald-950/40 p-5 rounded-2xl border border-emerald-800/50">
+              <h4 class="text-sm font-bold text-emerald-300 mb-2 flex items-center gap-2.5">
+                 <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                 Impacto & Resultado
+              </h4>
+              <p class="text-white text-sm font-medium leading-snug">{caso.resultado}</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              {caso.tech.map((t) => (
+                <span class="text-[11px] font-mono text-zinc-400 bg-zinc-950 px-3 py-1.5 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors">
+                  {t}
+                </span>
+              ))}
+            </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

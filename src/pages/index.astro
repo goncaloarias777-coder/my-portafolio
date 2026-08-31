@@ -1,17 +1,45 @@
 ---
-
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Proyectos from "../components/Proyectos.astro";
+import CasosEstudio from "../components/CasosEstudio.astro";
+import Servicios from "../components/Servicios.astro";
+import Metodologia from "../components/Metodologia.astro";
+import Skills from "../components/Skills.astro";
+import Faq from "../components/Faq.astro";
+import Contacto from "../components/Contacto.astro";
+import Footer from "../components/Footer.astro";
+import BotonWhatsApp from "../components/BotonWhatsApp.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gonzalo Arias | Diseñador & Desarrollador Web Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#09090b] text-zinc-100 font-['Plus_Jakarta_Sans',sans-serif] selection:bg-cyan-500 selection:text-zinc-950 antialiased overflow-x-hidden">
+
+    <!-- Efecto de iluminación de fondo sutil -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-cyan-500/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+
+    <Header />
+    <Hero />
+    <Proyectos />
+    <CasosEstudio />
+    <Servicios />
+    <Metodologia />
+    <Skills />
+    <Faq />
+    <Contacto />
+    <Footer />
+
+    <!-- Botón flotante de WhatsApp -->
+    <BotonWhatsApp />
+
+  </body>
 </html>

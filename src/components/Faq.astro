@@ -1,0 +1,41 @@
+---
+const faqs = [
+  {
+    pregunta: "¿Cuánto tiempo toma desarrollar un sitio web?",
+    respuesta: "Depende de la complejidad. Una landing page de alta conversión puede estar lista en 5 a 7 días hábiles, mientras que portfolios o sistemas web completos toman entre 2 y 4 semanas."
+  },
+  {
+    pregunta: "¿Podré actualizar los contenidos de la web por mi cuenta?",
+    respuesta: "¡Sí! Integramos paneles de gestión o sistemas headless súper intuitivos para que puedas cambiar textos, imágenes o agregar proyectos sin tocar una sola línea de código."
+  },
+  {
+    pregunta: "¿Qué tecnologías utilizas?",
+    respuesta: "Trabajo con un stack moderno enfocado en velocidad y rendimiento: Astro, Tailwind CSS, Next.js y Supabase. Esto garantiza webs rápidas, seguras y escalables."
+  },
+  {
+    pregunta: "¿Cómo es la forma de pago?",
+    respuesta: "Generalmente trabajamos con un 50% de seña para iniciar el proyecto y el 50% restante una vez que el sitio está aprobado y listo para salir a producción."
+  }
+];
+---
+
+<section id="faq" class="max-w-4xl mx-auto px-6 py-20 border-t border-zinc-900">
+  <div class="text-center mb-16">
+    <h2 class="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-3">Dudas comunes</h2>
+    <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Preguntas Frecuentes</p>
+  </div>
+
+  <div class="space-y-4">
+    {faqs.map((faq) => (
+      <details class="group bg-zinc-900/40 border border-zinc-800/80 p-6 rounded-2xl cursor-pointer hover:border-zinc-700 transition-all">
+        <summary class="flex items-center justify-between font-bold text-white text-base list-none">
+          {faq.pregunta}
+          <span class="text-cyan-400 group-open:rotate-45 transition-transform text-xl font-mono">+</span>
+        </summary>
+        <p class="text-zinc-400 text-sm mt-4 leading-relaxed">
+          {faq.respuesta}
+        </p>
+      </details>
+    ))}
+  </div>
+</section>

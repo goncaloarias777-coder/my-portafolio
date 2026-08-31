@@ -1,0 +1,43 @@
+---
+const pasos = [
+  {
+    num: "01",
+    titulo: "Descubrimiento & UX",
+    desc: "Analizamos los objetivos de tu negocio, tu público objetivo y definimos la arquitectura ideal de la interfaz.",
+  },
+  {
+    num: "02",
+    titulo: "Diseño UI en Alta Fidelidad",
+    desc: "Diseñamos cada pantalla a medida en Figma, enfocándonos en la estética, la conversión y la identidad de marca.",
+  },
+  {
+    num: "03",
+    titulo: "Desarrollo de Alto Rendimiento",
+    desc: "Transformamos el diseño en código limpio, optimizado para buscadores (SEO) y con una velocidad de carga extrema.",
+  },
+  {
+    num: "04",
+    titulo: "Lanzamiento & Soporte",
+    desc: "Publicamos tu web en producción con servidores seguros, listos para recibir tráfico y escalar ventas.",
+  },
+];
+---
+
+<section id="metodologia" class="max-w-6xl mx-auto px-6 py-20 border-t border-zinc-900">
+  <div class="mb-16">
+    <h2 class="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-3">Paso a paso</h2>
+    <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">¿Cómo trabajamos juntos?</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+    {pasos.map((paso) => (
+      <div class="bg-zinc-900/30 border border-zinc-800/80 p-6 rounded-2xl flex flex-col justify-between hover:border-cyan-500/40 transition-all">
+        <div>
+          <span class="text-xs font-bold text-cyan-400 font-mono tracking-widest mb-4 block">FASE {paso.num}</span>
+          <h3 class="text-lg font-bold text-white mb-2">{paso.titulo}</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed">{paso.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

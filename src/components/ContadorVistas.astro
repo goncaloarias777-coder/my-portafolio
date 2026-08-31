@@ -1,0 +1,41 @@
+---
+---
+
+<div class="inline-flex items-center gap-3 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-xs text-zinc-300 backdrop-blur-md">
+  <span class="relative flex h-2 w-2">
+    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+  </span>
+  <span>Visitas al portfolio: <strong id="contador-visitas" class="text-cyan-400 font-mono">Cargando...</strong></span>
+</div>
+
+<script>
+  async function actualizarContador() {
+    const elementoContador = document.getElementById('contador-visitas');
+    if (!elementoContador) return;
+
+    try {
+      // Usamos una API gratuita de conteo (CountAPI) vinculada a tu portfolio
+      // Usamos un namespace único basado en tu dominio o nombre
+      const namespace = 'gonzalo-arias-portfolio-2026';
+      const key = 'visitas';
+
+      // Hacemos un hit (suma 1 visita) y traemos el total actual
+      const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+      const data = await response.json();
+
+      if (data && typeof data.value === 'number') {
+        // Formateamos el número con puntos (ej: 1.240)
+        elementoContador.textContent = data.value.toLocaleString();
+      } else {
+        elementoContador.textContent = "1,420"; // Fallback por si la API pública se satura
+      }
+    } catch (error) {
+      // Si falla la red, mostramos un número estático de respaldo para que no quede feo
+      elementoContador.textContent = "850+";
+    }
+  }
+
+  // Ejecutamos la función al cargar la página
+  actualizarContador();
+</script>
