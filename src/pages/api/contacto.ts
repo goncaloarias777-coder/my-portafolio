@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Enviamos el correo electrónico a tu casilla
     const response = await resend.emails.send({
       from: 'Portfolio Web <onboarding@resend.dev>',
-      to: ['goncaloarias777@gmail.com'], // Reemplaza esto con tu email personal
+      to: [goncaloarias777@gmail.com], // Reemplaza esto con tu email personal
       subject: `Nuevo mensaje de contacto de ${nombre}`,
       html: `
         <h2>¡Tenés un nuevo cliente interesado en tu web!</h2>
