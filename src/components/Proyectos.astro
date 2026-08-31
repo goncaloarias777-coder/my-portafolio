@@ -1,5 +1,4 @@
  ---
-// 1. Definimos tus proyectos igual que antes
 const projects = [
   {
     title: "Barber Demo",
@@ -24,53 +23,42 @@ const projects = [
   }
 ];
 
-/**
- * 2. Esta función usa un servicio gratuito para capturar la pantalla de tu web.
- * Usamos "api.microlink.io" que es genial para esto.
- * La URL se genera automáticamente pasándole tu enlace de Vercel.
- */
-function getScreenshotUrl(vercelUrl: string) {
-  // Usamos la API de Microlink para generar la miniatura
-  return `https://api.microlink.io/?url=${encodeURIComponent(vercelUrl)}&embed=screenshot.url&viewport.isMobile=true&viewport.width=1200&viewport.height=800&waitFor=1000`;
+// Función optimizada para capturar la web usando Thum.io (genera la miniatura por URL automáticamente)
+function getThumbUrl(url: string) {
+  return `https://image.thum.io/get/width/600/crop/800/${url}`;
 }
 ---
 
 <section class="max-w-6xl mx-auto px-6 py-10 space-y-8">
-  
-  <!-- Título de Sección -->
   <div class="space-y-2">
     <span class="text-xs uppercase tracking-widest text-cyan-400 font-semibold">Portafolio Visual</span>
     <h2 class="text-3xl font-bold tracking-tight text-zinc-100">Galería de Landings</h2>
-    <p class="text-sm text-zinc-400">Miniaturas en tiempo real de tus proyectos en Vercel.</p>
+    <p class="text-sm text-zinc-400">Generadas automáticamente desde Vercel.</p>
   </div>
 
-  <!-- Grilla de Tarjetas Visuales (Se adapta de 1 a 3 columnas) -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {projects.map((project) => (
       <a 
         href={project.link} 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="group block bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyan-500/40 hover:-translate-y-1.5 shadow-2xl shadow-black/30 hover:shadow-cyan-500/10"
+        class="group block bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyan-500/40 hover:-translate-y-1.5 shadow-2xl"
       >
-        <!-- Contenedor de la Imagen de Fondo (La Miniatura) -->
+        <!-- Miniatura automática -->
         <div class="aspect-[16/10] w-full bg-zinc-950 relative overflow-hidden">
           <img 
-            src={getScreenshotUrl(project.link)} 
-            alt={`Captura de pantalla de ${project.title}`}
+            src={getThumbUrl(project.link)} 
+            alt={`Vista previa de ${project.title}`}
             loading="lazy"
-            class="absolute inset-0 w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+            class="absolute inset-0 w-full h-full object-cover object-top opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
           />
-          <!-- Capa de degradado sutil sobre la imagen para leer el texto encima -->
-          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent"></div>
           
-          <!-- Etiqueta flotante -->
           <span class="absolute top-3 left-3 text-[10px] font-mono text-cyan-300 bg-cyan-950/80 border border-cyan-800/50 px-3 py-1 rounded-full backdrop-blur-sm">
             {project.tag}
           </span>
         </div>
 
-        <!-- Contenido de Texto debajo de la imagen -->
         <div class="p-5 space-y-3">
           <div class="flex items-center justify-between gap-2">
             <h3 class="font-bold text-lg text-zinc-50 group-hover:text-cyan-400 transition-colors truncate">
@@ -84,7 +72,6 @@ function getScreenshotUrl(vercelUrl: string) {
             {project.description}
           </p>
           
-          <!-- Tecnologías -->
           <div class="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-800/60">
             {project.techs.map((tech) => (
               <span class="text-[10px] bg-zinc-800 text-zinc-300 px-2.5 py-0.5 rounded-md">
